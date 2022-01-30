@@ -7,38 +7,39 @@ import './style.scss';
 const TodoList = (props) => {
   const { tasks, toggleTask } = props;
   const [isShow, setIsShow] = useState(false);
+  const [modalContent, setModalContent] = useState('');
 
-  const showModal = () => {
+  const showModal = (content) => () => {
     setIsShow(true);
+    setModalContent(content);
   };
   const hideModal = () => {
     setIsShow(false);
+    setModalContent('');
   };
 
   return (
     <div className="todo-list-wrapper">
       <ul className="todo-list">
         {tasks.map((task) => (
-          <>
-            <li
-              className="todo-list-item"
-              style={task.isComplated ? styles.taskComplated : {}}
-              key={task.id}
+          <li
+            className="todo-list-item"
+            style={task.isComplated ? styles.taskComplated : {}}
+            key={task.id}
+          >
+            <div
+              onClick={toggleTask(task.id)}
+              style={task.isComplated ? styles.taskComplatedText : {}}
             >
-              <div
-                onClick={toggleTask(task.id)}
-                style={task.isComplated ? styles.taskComplatedText : {}}
-              >
-                {task.content}
-              </div>
-              <button onClick={showModal}>Open</button>
-            </li>
-            <Modal show={isShow} handleClose={hideModal}>
               {task.content}
-            </Modal>
-          </>
+            </div>
+            <button onClick={showModal(task.content)}>Open</button>
+          </li>
         ))}
       </ul>
+      <Modal show={isShow} handleClose={hideModal}>
+        {modalContent}
+      </Modal>
     </div>
   );
 };
