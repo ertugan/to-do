@@ -1,0 +1,21 @@
+.todo {
+  &-action {
+    width: 50%;
+  }
+  &-complated-clear {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0;
+    background-color: #ff6262;
+    color: #fff;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .todo {
+    &-action {
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
+}

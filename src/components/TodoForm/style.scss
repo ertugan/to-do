@@ -1,0 +1,23 @@
+.todo {
+  &-form {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    input[type='text'] {
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid #d6d6d6;
+      }
+      width: 100%;
+      font-size: 18px;
+      height: 80%;
+      border: 1px solid transparent;
+      transition: 1s;
+    }
+    button {
+      height: 80%;
+      font-size: 18px;
+      color: #4a93fb;
+    }
+  }
+}

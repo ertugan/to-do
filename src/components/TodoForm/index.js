@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './style.scss';
+
 const TodoForm = (props) => {
   const { saveTask } = props;
 
@@ -12,8 +14,8 @@ const TodoForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="content" type="text" placeholder="Enter task..." required />
+    <form className="todo-form" onSubmit={handleSubmit}>
+      <input name="content" type="text" placeholder="Enter task..." required autoFocus />
       <button type="submit">Submit</button>
     </form>
   );

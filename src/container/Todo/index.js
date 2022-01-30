@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
-import { Header, TodoForm, TodoList } from '../../components';
+import { Header, TodoForm, TodoList, Layout } from '../../components';
+
+import './style.scss';
 
 const Todo = () => {
-  const [tasks, setTasks] = useState([{ id: 1, content: 'Hello', isComplated: false }]);
+  const [tasks, setTasks] = useState([]);
 
   const saveTask = (value) => {
     setTasks((prevTasks) => {
@@ -14,7 +16,7 @@ const Todo = () => {
   };
 
   const clearTask = () => {
-    setTasks([]);
+    setTasks((prevTasks) => prevTasks.filter((task) => task.isComplated === false));
   };
 
   const toggleTask = (taskID) => () => {
@@ -29,14 +31,16 @@ const Todo = () => {
   };
 
   return (
-    <>
+    <Layout>
       <Header />
       <TodoList tasks={tasks} toggleTask={toggleTask} />
-      <button onClick={clearTask} style={{ margin: '14px' }}>
-        Clear Completed
-      </button>
-      <TodoForm saveTask={saveTask} />
-    </>
+      <div className="todo-action">
+        <button className="todo-complated-clear" onClick={clearTask}>
+          Clear Completed
+        </button>
+        <TodoForm saveTask={saveTask} />
+      </div>
+    </Layout>
   );
 };
 
