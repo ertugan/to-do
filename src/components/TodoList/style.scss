@@ -32,34 +32,9 @@
   .todo {
     &-list {
       &-wrapper {
-        // background-color: yellow;
         width: 100%;
         padding: 0 20px;
       }
-      // &-item {
-      //   border: 1px solid #b7b7b7;
-      //   display: flex;
-      //   justify-content: space-between;
-      //   &:not(:last-child) {
-      //     margin-bottom: 10px;
-      //   }
-      //   div {
-      //     white-space: nowrap;
-      //     overflow: hidden;
-      //     text-overflow: ellipsis;
-      //     width: 100%;
-      //     padding: 20px;
-      //     padding-right: 20px;
-      //   }
-      //   button {
-      //     background: none;
-      //     color: inherit;
-      //     border: none;
-      //     font: inherit;
-      //     cursor: pointer;
-      //     outline: inherit;
-      //   }
-      // }
     }
   }
 }

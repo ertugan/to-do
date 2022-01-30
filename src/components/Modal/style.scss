@@ -34,3 +34,11 @@
 .display-none {
   display: none;
 }
+
+@media only screen and (max-width: 1024px) {
+  .modal {
+    &-main {
+      width: 80%;
+    }
+  }
+}
